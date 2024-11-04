@@ -50,6 +50,9 @@ public class User {
 		return cards;
 	}
 	
+	public void addCard(Card newCard) {
+		this.cards.add(newCard);
+	}
 	
 	
 	
