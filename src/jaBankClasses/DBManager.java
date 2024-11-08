@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public class DBManager {
 
 	private static final String DB_DRIVER = "org.h2.Driver";
-	private static final String DB_BASE_URL = "jdbc:h2:tcp://localhost//{DIR}";
+	private static final String DB_BASE_URL = "jdbc:h2:file:/home/august/eclipse-workspace/JaBank/base/basedatos";
 	private static final String DB_NAME = "/proyecto";
 	private static final String DB_USERNAME = "sa";
 	private static final String DB_PASSWORD = "";
@@ -22,8 +22,8 @@ public class DBManager {
 			System.exit(0);
 		}
 		try {
-			String url = "jdbc:h2:tcp://localhost//{DIR}/ejemplo";
-			url = url.replace("{DIR}", getDirectorioBase());
+			String url = DB_BASE_URL;
+			//url = url.replace("{DIR}", getDirectorioBase());
 			//System.out.println(url);
 			c = DriverManager.getConnection(url, DB_USERNAME, DB_PASSWORD);
 			c.setAutoCommit(false);
@@ -41,7 +41,7 @@ public class DBManager {
 	}
 
 	public static String obtenerUbicacionBase() {
-		String url = "jdbc:h2:tcp://localhost//{DIR}/ejemplo";
+		String url = "jdbc:h2:file:/home/august/eclipse-workspace/JaBank/base/basedatos";
 		url = url.replace("{DIR}", getDirectorioBase());
 		return url;
 	}
